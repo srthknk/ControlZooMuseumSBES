@@ -20,11 +20,15 @@ services:
       - key: JWT_EXPIRY
         value: 500d
       - key: FRONTEND_URL
-        value: https://zoomaintenance.vercel.app
+        value: https://zoomuseumsb.vercel.app
       - key: BACKEND_URL
         value: https://servermaintenancecontrolsbes.onrender.com
       - key: ADMIN_PANEL_URL
-        value: https://zoomaintenance.vercel.app
+        value: https://zoomuseumsb.vercel.app
+      - key: CLIENT_APP_BASE_URL
+        value: https://zoomuseumsb.vercel.app
+      - key: CLIENT_APP_API_URL
+        value: https://servermaintenancecontrolsbes.onrender.com/api
       - key: LOG_LEVEL
         value: info
       - key: DEBUG
