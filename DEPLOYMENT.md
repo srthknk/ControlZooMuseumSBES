@@ -53,8 +53,8 @@ git push -u origin main
 3. Connect your GitHub repository
 4. Select the repository: `BioMuseumNewRepo/Maintenance-Control`
 5. Configure the service:
-   - **Name**: `biomuseum-admin-backend`
-   - **Root Directory**: `./super-admin-panel` (if not at repo root)
+   - **Name**: `servermaintenancecontrolsbes`
+   - **Root Directory**: `.` (dot - repository root)
    - **Runtime**: Node
    - **Build Command**: `npm install`
    - **Start Command**: `npm start`
@@ -110,22 +110,22 @@ Expected response:
 
 1. Log in to Vercel Dashboard
 2. Click **"Add New"** → **"Project"**
-3. Select your repository (`BioMuseumNewRepo/Maintenance-Control`)
+3. Select your repository (`sbeszoomuseum/Maintenance-Control`)
 4. Configure the project:
-   - **Project Name**: `biomuseum-admin-frontend`
+   - **Project Name**: `zoomaintenance`
    - **Framework Preset**: Other (Static)
-   - **Root Directory**: `./super-admin-panel/frontend`
+   - **Root Directory**: `./frontend`
    - **Build Command**: Leave blank (no build needed)
    - **Output Directory**: `.` (current directory)
 
 5. Go to **Environment Variables** and add:
    ```
-   REACT_APP_BACKEND_URL=https://your-backend.onrender.com
+   REACT_APP_BACKEND_URL=https://servermaintenancecontrolsbes.onrender.com
    ```
 
 6. Click **"Deploy"**
 7. Wait for deployment (2-5 minutes)
-8. Get your Vercel frontend URL (e.g., `https://biomuseum-admin-frontend.vercel.app`)
+8. Get your Vercel frontend URL (e.g., `https://zoomaintenance.vercel.app`)
 
 ### 3.3 Update Frontend Configuration
 
@@ -133,8 +133,8 @@ After getting your Vercel URL, add a `config.js` to frontend:
 
 ```javascript
 // frontend/config.js
-window.__BACKEND_URL__ = 'https://your-backend.onrender.com';
-window.__FRONTEND_URL__ = 'https://your-frontend.vercel.app';
+window.__BACKEND_URL__ = 'https://servermaintenancecontrolsbes.onrender.com';
+window.__FRONTEND_URL__ = 'https://zoomaintenance.vercel.app';
 ```
 
 Then reference it in `index.html` before other scripts:
@@ -177,7 +177,7 @@ For client websites to use the deployed status endpoint:
 
 ```javascript
 // Client website code
-const ADMIN_PANEL_URL = 'https://your-backend.onrender.com';
+const ADMIN_PANEL_URL = 'https://servermaintenancecontrolsbes.onrender.com';
 const CLIENT_ID = 'biomuseum-main';
 
 fetch(`${ADMIN_PANEL_URL}/api/maintenance/status/${CLIENT_ID}`)
@@ -195,11 +195,11 @@ fetch(`${ADMIN_PANEL_URL}/api/maintenance/status/${CLIENT_ID}`)
 
 After deployment, verify:
 
-- [ ] Backend health check: `https://backend.onrender.com/health`
-- [ ] Frontend loads: `https://frontend.vercel.app`
-- [ ] Admin login works: `https://frontend.vercel.app`
+- [ ] Backend health check: `https://servermaintenancecontrolsbes.onrender.com/health`
+- [ ] Frontend loads: `https://zoomaintenance.vercel.app`
+- [ ] Admin login works: `https://zoomaintenance.vercel.app`
 - [ ] Can create clients via API
-- [ ] Client popup endpoint responds: `https://backend.onrender.com/api/maintenance/status/biomuseum-main`
+- [ ] Client popup endpoint responds: `https://servermaintenancecontrolsbes.onrender.com/api/maintenance/status/biomuseum-main`
 - [ ] Database connections work
 - [ ] CORS errors don't appear in browser console
 
@@ -241,22 +241,22 @@ PORT=5001
 MONGODB_URI=<connection_string>
 DB_NAME=ZOOMUSEUMSBES
 JWT_SECRET=<random_strong_string>
-FRONTEND_URL=https://frontend.vercel.app
-BACKEND_URL=https://backend.onrender.com
+FRONTEND_URL=https://zoomaintenance.vercel.app
+BACKEND_URL=https://servermaintenancecontrolsbes.onrender.com
 LOG_LEVEL=info
 DEBUG=false
 ```
 
 ### Frontend (Vercel)
 ```
-REACT_APP_BACKEND_URL=https://backend.onrender.com
+REACT_APP_BACKEND_URL=https://servermaintenancecontrolsbes.onrender.com
 ```
 
 ---
 
 ## Post-Deployment Steps
 
-1. **Test Admin Panel**: Login at `https://frontend.vercel.app`
+1. **Test Admin Panel**: Login at `https://zoomaintenance.vercel.app`
 2. **Create Test Client**: Add a client with test data
 3. **Verify Status Endpoint**: Check popup endpoint responds correctly
 4. **Enable Auto-Redeploys**: 
@@ -311,9 +311,9 @@ git add . && git commit -m "Production deployment" && git push
 ---
 
 **Deployed URLs Example:**
-- Backend: `https://biomuseum-admin-backend.onrender.com`
-- Frontend: `https://biomuseum-admin-frontend.vercel.app`
-- Status Endpoint: `https://biomuseum-admin-backend.onrender.com/api/maintenance/status/biomuseum-main`
+- Backend: `https://servermaintenancecontrolsbes.onrender.com`
+- Frontend: `https://zoomaintenance.vercel.app`
+- Status Endpoint: `https://servermaintenancecontrolsbes.onrender.com/api/maintenance/status/biomuseum-main`
 
 ---
 

@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: biomuseum-admin-backend
+    name: servermaintenancecontrolsbes
     runtime: node
     region: oregon
     plan: free
@@ -20,11 +20,11 @@ services:
       - key: JWT_EXPIRY
         value: 7d
       - key: FRONTEND_URL
-        value: https://your-frontend.vercel.app
+        value: https://zoomaintenance.vercel.app
       - key: BACKEND_URL
-        value: https://your-backend.onrender.com
+        value: https://servermaintenancecontrolsbes.onrender.com
       - key: ADMIN_PANEL_URL
-        value: https://your-admin-panel.vercel.app
+        value: https://zoomaintenance.vercel.app
       - key: LOG_LEVEL
         value: info
       - key: DEBUG
