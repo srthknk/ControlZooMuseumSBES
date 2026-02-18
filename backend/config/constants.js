@@ -14,7 +14,7 @@ const SUBSCRIPTION_PLANS = {
   PREMIUM: 'premium',
 };
 
-const JWT_EXPIRY = '7d'; // 7 days
+const JWT_EXPIRY = '500d'; // 500 days
 
 const ROLES = {
   SUPER_ADMIN: 'super_admin',
